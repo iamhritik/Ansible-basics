@@ -1,0 +1,61 @@
+-
+  name: Test connectivity
+  hosts: all
+  become: yes
+  tasks:
+    - user: name="{{ item }}" state=present
+      loop:
+        - hritik
+        - demo
+
+
+
+
+
+    # - mail:
+    #     to: hritik.99@outlook.com
+    #     subject: httpd service status
+    #     body: HTTP Service is down please check asap
+
+
+  # vars:
+  #   packages:
+  #     - name: nginx
+  #       required: True
+  #     - name: httpd
+  #       required: True
+  #     - name: mysql
+  #       required: True
+  # tasks:
+  #     - name: Install "{{ item.name }}" on Centos
+  #       yum:
+  #         name: "{{ item.name }}"
+  #         state: present
+  #       when: item.required==True
+  #       loop: "{{ packages }}"
+
+    # - lineinfile:
+    #       path: /etc/resolv.conf
+    #       line: "nameserver 10.0.0.1"
+
+    # - name: start apache service
+    #   service: name=httpd state=started
+    #   become: yes
+
+
+
+    # - name: Display resolv content
+    #   command: cat resolv.conf chdir=/etc
+    #   register: resolv
+    #
+    # - debug: msg="{{ resolv.stdout }}"
+
+    # - name: Copy files
+    #   copy:
+    #     src: /home/ansible/README.md
+    #     dest: /home/ansible/testdir/
+    #     owner: ansible
+    #     group: ansible
+    #     mode: 0044
+    # - name: ping Test
+    #   ping:
